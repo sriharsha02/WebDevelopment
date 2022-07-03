@@ -11,3 +11,8 @@ const personDetails = {
 }
 console.log(personDetails.hobbies[2]);
 console.log(personDetails.address.state);
+
+const personState = personDetails.map(function(todo){
+  return todo.address.state;
+})
+console.log(personState);
