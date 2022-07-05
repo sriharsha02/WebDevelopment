@@ -37,3 +37,11 @@ items[2].style.backgroundColor = 'green';
 for(var i = 0; i < items.length; i++){
   items[i].style.fontWeight = 'bold';
 }
+// styling a newly added li element by class name and tag name
+var li = document.getElementsByClassName('extra-item');
+var list = document.getElementsByTagName('li');
+//styling the newly created item by tagname
+list[4].style.fontWeight = "bold";
+list[4].textContent = "newItem";
+//styling the newly created item by classname
+ li[4].style.border = "red"; //Gives error
