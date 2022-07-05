@@ -26,8 +26,14 @@ var items = document.getElementsByClassName('list-group-item');
 console.log(items);
 items[1].textContent = 'Hello';
 items[2].style.backgroundColor = 'green';
-items[0].style.fontWeight = 'bold';
-items[1].style.fontWeight = 'bold';
-items[2].style.fontWeight = 'bold';
-items[3].style.fontWeight = 'bold';
 
+
+// items[0].style.fontWeight = 'bold';
+// items[1].style.fontWeight = 'bold';
+// items[2].style.fontWeight = 'bold';
+// items[3].style.fontWeight = 'bold';
+// Instead of doing as above we can loop through the HTML collection
+
+for(var i = 0; i < items.length; i++){
+  items[i].style.fontWeight = 'bold';
+}
