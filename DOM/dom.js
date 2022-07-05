@@ -49,17 +49,25 @@
 
 //QUERY SELECTOR//
 
-var header = document.querySelector('#main-header');
-header.style.boderBottom = 'solid 3px #ccc';
-var input = document.querySelector('input');
-input.value = "Hello World";
+// var header = document.querySelector('#main-header');
+// header.style.boderBottom = 'solid 3px #ccc';
+// var input = document.querySelector('input');
+// input.value = "Hello World";
 
-var item = document.querySelector(".list-group-item");
-item.style.color = 'red';
+// var item = document.querySelector(".list-group-item");
+// item.style.color = 'red';
 
-//making second item green in color
-var secondItem = document.querySelector(".list-group-item:nth-child(2)");
-secondItem.style.color = 'green';
-//making third item invisible
-var thirdItem = document.querySelector(".list-group-item:nth-child(3)");
-thirdItem.style.visibility = 'hidden';
+// //making second item green in color
+// var secondItem = document.querySelector(".list-group-item:nth-child(2)");
+// secondItem.style.color = 'green';
+// //making third item invisible
+// var thirdItem = document.querySelector(".list-group-item:nth-child(3)");
+// thirdItem.style.visibility = 'hidden';
+
+var items = document.querySelectorAll(".list-group-item:nth-child(2)");
+// items.style.color = "blue"; Gives error as query selector is not used with single element
+
+var odd = document.querySelectorAll("li:nth-child(odd)");
+for(var i = 0; i < odd.length; i++){
+  odd[i].style.backgroundColor = 'green';
+}
