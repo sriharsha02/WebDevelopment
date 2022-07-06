@@ -135,12 +135,13 @@ container.insertBefore(newDiv, h1);
 var newItem = document.createElement('li');
 //creating a text node
 var newItemText = document.createTextNode("Hello World");
-
+//appending the text to the list
 newItem.appendChild(newItemText);
 
 var list = document.getElementById('items');
 //inserting before the first list item
 list.insertBefore(newItem, list.children[0]);
+
 
 
 
