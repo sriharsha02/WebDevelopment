@@ -64,10 +64,83 @@
 // var thirdItem = document.querySelector(".list-group-item:nth-child(3)");
 // thirdItem.style.visibility = 'hidden';
 
-var items = document.querySelectorAll(".list-group-item:nth-child(2)");
-// items.style.color = "blue"; Gives error as query selector is not used with single element
+// var items = document.querySelectorAll(".list-group-item:nth-child(2)");
+// // items.style.color = "blue"; Gives error as query selector is not used with single element
 
-var odd = document.querySelectorAll("li:nth-child(odd)");
-for(var i = 0; i < odd.length; i++){
-  odd[i].style.backgroundColor = 'green';
-}
+// var odd = document.querySelectorAll("li:nth-child(odd)");
+// for(var i = 0; i < odd.length; i++){
+//   odd[i].style.backgroundColor = 'green';
+// }
+
+// Traversing DOM
+var itemList = document.querySelector("#items");
+
+//Parent Node
+console.log(itemList.parentNode);
+itemList.parentElement.style.backgroundColor = '#f4f4f4';
+
+//child Nodes
+// console.log(itemList.childNodes);
+// console.log(itemList.children);
+console.log(itemList.children[1]);
+itemList.children[1].style.backgroundColor = 'yellow';
+
+//firstChilde
+console.log(itemList.firstChild);
+//firstElementChild
+console.log(itemList.firstElementChild);
+itemList.firstElementChild.textContent = 'Hello';
+
+//LastChild
+console.log(itemList.lastChild);
+console.log(itemList.lastElementChild);
+itemList.lastElementChild.textContent = 'Hello Last';
+
+//nextSibling
+console.log(itemList.nextSibling);
+console.log(itemList.nextElementSibling);
+
+//previous Sibling
+
+console.log(itemList.previousSibling);
+console.log(itemList.previousElementSibling);
+
+//create Element
+var newDiv = document.createElement('div');
+
+//Add class
+newDiv.className = "hello";
+
+//Add Id
+newDiv.id = 'hello1';
+console.log(newDiv);
+
+//Add Attribute
+newDiv.setAttribute('title', 'Hello Div');
+
+//Add text node
+
+var newDivText = document.createTextNode('Hello Text');
+
+//append text to div
+newDiv.appendChild(newDivText);
+
+
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1');
+
+container.insertBefore(newDiv, h1);
+
+//creating a new list item
+var newItem = document.createElement('li');
+//creating a text node
+var newItemText = document.createTextNode("Hello World");
+
+newItem.appendChild(newItemText);
+
+var list = document.getElementById('items');
+//inserting before the first list item
+list.insertBefore(newItem, list.children[0]);
+
+
+
