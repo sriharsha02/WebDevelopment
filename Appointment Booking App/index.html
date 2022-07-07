@@ -32,6 +32,18 @@
           localStorage.setItem('userName',name);
           localStorage.setItem('userEmail',email);
         }
+
+        var myObj = {
+          name: 'harsha',
+          age : 20
+        };
+        var myObjSer = JSON.stringify(myObj);
+        console.log(myObjSer);
+        localStorage.setItem('myObj',myObjSer);
+        console.log(localStorage);
+
+        var myObjDeser = JSON.parse(localStorage.getItem('myObj'));
+        console.log(myObjDeser);
       </script>
     </form>
   </section>
