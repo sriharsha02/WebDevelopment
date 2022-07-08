@@ -20,36 +20,47 @@
       </div>
       <div>
         <label for="email">Email:</label>
-        <input type="email" id="userEmail" name="email">
+        <input type="email" id="userEmail" name="emailId">
       </div>
       <input class="btn" type="submit" value="Submit">
-      <script >
+      <ul id="listOfUsers"></ul>
+      <ul id="userDetails"></ul>
+      <script> 
+        document.addEventListener('DOMContentLoaded', abc);
         function getDetails(event){
           event.preventDefault();
-          var name = document.getElementById("userName").value;
-          var email = document.getElementById("userEmail").value;
-
-          localStorage.setItem('userName',name);
-          localStorage.setItem('userEmail',email);
+          var name = event.target.username.value;
+          var email = event.target.emailId.value;
+          var myObj = {
+          name,
+          email
         }
+        localStorage.setItem(myObj.name, JSON.stringify(myObj));
+        showNewUserOnScreen(myObj);
+       
+        }
+        function showNewUserOnScreen(user){
+          const parentNode = document.getElementById("listOfUsers");
+          const childHTML = `<li> ${user.name} ${user.email} </li>`;
+          parentNode.innerHTML =  parentNode.innerHTML + childHTML;
+        }
+        document.addEventListener('DOMContentLoaded', abc);
+        function abc(event){
 
-        var myObj = {
-          name: 'harsha',
-          age : 20
-        };
-        var myObjSer = JSON.stringify(myObj);
-        console.log(myObjSer);
-        localStorage.setItem('myObj',myObjSer);
-        console.log(localStorage);
+          for(var i = 0; i < localStorage.length; i++){
+            var a = localStorage.key(i);
+            var b = localStorage.getItem(a);
+            var c = JSON.parse(b);
+            console.log(c);
+            
+            const parentNode = document.getElementById("userDetails");
+            const childHTML = `<li> ${c.name} ${c.email}  </li>`;
+            parentNode.innerHTML =  parentNode.innerHTML + childHTML;
+          }
 
-        var myObjDeser = JSON.parse(localStorage.getItem('myObj'));
-        console.log(myObjDeser);
+        }       
       </script>
     </form>
   </section>
-  
-
-
-  
 </body>
 </html>
