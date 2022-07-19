@@ -26,7 +26,6 @@
       <ul id="listOfUsers"></ul>
       <ul id="userDetails"></ul>
       <script> 
-        document.addEventListener('DOMContentLoaded', abc);
         function getDetails(event){
           event.preventDefault();
           var name = event.target.username.value;
@@ -40,27 +39,34 @@
        
         }
         function showNewUserOnScreen(user){
+          event.preventDefault();
           const parentNode = document.getElementById("listOfUsers");
-          const childHTML = `<li> ${user.name} ${user.email} </li>`;
+          const childHTML = `<li> ${user.name} ${user.email} <button onclick= 'deleteUser('${user.name}'> Delete User</button> </li>`;
           parentNode.innerHTML =  parentNode.innerHTML + childHTML;
         }
-        document.addEventListener('DOMContentLoaded', abc);
-        function abc(event){
+        // document.addEventListener('DOMContentLoaded', abc);
 
-          for(var i = 0; i < localStorage.length; i++){
-            var a = localStorage.key(i);
-            var b = localStorage.getItem(a);
-            var c = JSON.parse(b);
-            console.log(c);
+        // function abc(event){
+
+        //   for(var i = 0; i < localStorage.length; i++){
+        //     var a = localStorage.key(i);
+        //     var b = localStorage.getItem(a);
+        //     var c = JSON.parse(b);
+        //     console.log(c);
             
-            const parentNode = document.getElementById("userDetails");
-            const childHTML = `<li> ${c.name} ${c.email}  </li>`;
-            parentNode.innerHTML =  parentNode.innerHTML + childHTML;
-          }
+        //     const parentNode = document.getElementById("userDetails");
+        //     const childHTML = `<li> ${c.name} ${c.email}  </li>`;
+        //     parentNode.innerHTML =  parentNode.innerHTML + childHTML;
+        //   }
 
-        }       
+        // }    
+        function deleteUser(email){
+          console.log(email);
+          localStorage.removeItem(email);
+        }   
       </script>
     </form>
   </section>
 </body>
 </html>
+

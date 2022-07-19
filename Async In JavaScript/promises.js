@@ -48,7 +48,30 @@ createPost({title : 'Post Three', body: 'This is post three'})
   deletePost().then(() => {
     getPosts();
   }).catch(err => console.log(err))
-}).catch(err => console.log(err))
+  deletePost().then(() => {
+    getPosts();
+  }).catch(err => console.log(err))
+}).catch(err => console.log(err));
+
+const user = {
+  lastActivityTime : ''
+}
+
+function updateLastUserActivityTime(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      user.lastActivityTime = new Date().getTime();
+      resolve(user.lastActivityTime)
+    }, 1000);
+
+
+  })
+}
+//Using promise.all
+
+Promise.all([createPost, updateLastUserActivityTime]).then(([creatPostResolves, updateLastUserActivityTimeResolves]) => {
+  console.log(updateLastUserActivityTimeResolves)
+}).catch(err => console.log(err));
 
 
 
