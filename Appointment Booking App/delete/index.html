@@ -53,15 +53,21 @@
                 const parentNode = document.getElementById('listOfUsers');
                 const childHTML = `<li id=${user._id}> ${user.name} - ${user.email}
                                         <button onclick=deleteUser('${user._id}')> Delete User </button>
-                                        <button onclick=editUserDetails('${user._id}','${user.name}','${user.phonenumber}')>Edit User </button>
+                                        <button onclick=editUserDetails('${user.email}','${user.name}','${user.phonenumber}','${user._id}')>Edit User </button>
                                      </li>`
                 parentNode.innerHTML = parentNode.innerHTML + childHTML;
             }
-            function editUserDetails(emailId, name, phonenumber){
+            //editing the details of user 
+            function editUserDetails(emailId, name, phonenumber, userId){
+                // axios.put(`https://crudcrud.com/api/7611d8c128454c8d9f8a1f4bdbaa449f/appointmentData/${userId}`, {
+                //     name : `${user.name}`,
+                //     emailId : `${user.email}`,
+                //     phonenumber : `${user.phonenumber}`
+                // })
                 document.getElementById('email').value = emailId;
                 document.getElementById('username').value = name;
                 document.getElementById('phonenumber').value =phonenumber;
-                deleteUser(emailId)
+                deleteUser(userId)
              }
              //Deleting the users from the list
             function deleteUser(userId){
