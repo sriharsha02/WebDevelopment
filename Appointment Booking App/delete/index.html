@@ -1,6 +1,6 @@
 <html>
     <body>
-        <form  onsubmit="saveToLocalStorage(event)">
+        <form  onsubmit="saveToCrudCrud(event)">
             <label> Name</label>
             <input id='username' type="text" name="username"  required/>
             <label> EmailId</label>
@@ -12,7 +12,7 @@
         <ul id='listOfUsers'></ul>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
         <script>
-            function saveToLocalStorage(event) {
+            function saveToCrudCrud(event) {
                 event.preventDefault();
                 const name = event.target.username.value;
                 const email = event.target.emailId.value;
@@ -22,9 +22,6 @@
                     email,
                     phonenumber
                 }
-                //saving in the local storage
-                // localStorage.setItem(obj.email, JSON.stringify(obj))
-                
                 //sending the data to backend
                 axios.post("https://crudcrud.com/api/7611d8c128454c8d9f8a1f4bdbaa449f/appointmentData", obj)
                     .then((response) => {
@@ -33,20 +30,23 @@
                         document.body.innerHTML = document.body.innerHTML + '<h4> Something went wrong</h4>'
                     })
             }
+            //Getting the data from the backend
             window.addEventListener("DOMContentLoaded", () => {
-                const localStorageObj = localStorage;
-                const localstoragekeys  = Object.keys(localStorageObj)
-                for(var i =0; i< localstoragekeys.length; i++){
-                    const key = localstoragekeys[i]
-                    const userDetailsString = localStorageObj[key];
-                    const userDetailsObj = JSON.parse(userDetailsString);
-                    // showNewUserOnScreen(userDetailsObj)
-                }
+                axios.get("https://crudcrud.com/api/7611d8c128454c8d9f8a1f4bdbaa449f/appointmentData")
+                    .then((response) => {
+                        for(let i = 0; i < response.data.length; i++){
+                            showNewUserOnScreen(response.data[i]);
+                        }
+                    })
+                    .catch((err) => {
+                        console.log(err);
+
+                    })
             })
             function showNewUserOnScreen(user){
                 document.getElementById('email').value = '';
                 document.getElementById('username').value = '';
-                document.getElementById('phonenumber').value ='';
+                document.getElementById('phonenumber').value = '';
                 // console.log(localStorage.getItem(user.emailId))
                 if(localStorage.getItem(user.email) !== null){
                     removeUserFromScreen(user.email)
