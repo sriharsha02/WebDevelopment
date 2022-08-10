@@ -1,0 +1,16 @@
+{
+  "name": "reqres",
+  "version": "1.0.0",
+  "description": "NodeJS course",
+  "main": "parsingRequests.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon parsingRequests.js",
+    "start-server": "node parsingRequests.js"
+  },
+  "author": "Sri Harsha",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

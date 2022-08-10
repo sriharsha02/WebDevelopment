@@ -1,0 +1,93 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+    <form onsubmit="saveToCrudCrud(event)">
+      <label>Expense Amout</label>
+      <input id="amount" type="text" name="amount">
+      <label>Expense Description</label>
+      <input id="amountDescription" type="text"  name="amountDescription"  required>
+      <label>Expense Category</label>
+      <select id="category"name="amountCategory">
+        <option>Fee</option>
+        <option>Entertainment</option>
+        <option>Donation</option>
+        <option>Travel</option>
+        <option>Groceries</option>
+        <option>Rent</option>
+        <option>Misc</option>
+      </select>
+      <button type="submit">Submit</button>
+      
+    </form>
+    <ul id="expenseList"></ul>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script>
+      function saveToCrudCrud(event){
+        event.preventDefault();
+        const expenseAmount = event.target.amount.value;
+        const expenseDescription = event.target.amountDescription.value;
+        const expenseCategory = event.target.amountCategory.value;
+        const myobj = {
+          expenseAmount,
+          expenseDescription,
+          expenseCategory
+        };
+        axios.post("https://crudcrud.com/api/e27a89f364bb459f9fb79dc5c9b685ca/ExpenseData",myobj)
+          .then((response) => {
+            showExpensesOnScreen(response.data);
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        axios.get("https://crudcrud.com/api/e27a89f364bb459f9fb79dc5c9b685ca/ExpenseData")
+          .then((response) => {
+            console.log(response)
+            for(let i = 0; i < response.data.length; i++){
+              showExpensesOnScreen(response.data[i]);
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      });
+      function showExpensesOnScreen(myobj){
+        const parentNode = document.getElementById("expenseList");
+        console.log(myobj._id);
+        const childNode = `<li id='${myobj._id}'>
+                              ${myobj.expenseAmount}-${myobj.expenseDescription}-${myobj.expenseCategory}
+                              <button onclick="deleteExpense('${myobj._id}')">Delete Expense</button>
+                              <button onclick="editExpense('${myobj.expenseAmount}','${myobj.expenseDescription}','${myobj.expenseCategory}','${myobj._id}')">Edit Expense</button>
+                            </li>`;
+        parentNode.innerHTML = parentNode.innerHTML + childNode;
+      }
+      function deleteExpense(expenseID){
+        axios.delete(`https://crudcrud.com/api/e27a89f364bb459f9fb79dc5c9b685ca/ExpenseData/${expenseID}`)
+          .then((response) => {
+            deleteExpenseFromScreen(expenseID)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+      function editExpense(expenseAmount, expenseDescription, expenseCategory, expenseID){
+        console.log(expenseID)
+        document.getElementById('amount').value = expenseAmount;
+        document.getElementById('amountDescription').value = expenseDescription;
+        document.getElementById('category').value = expenseCategory;
+        deleteExpense(expenseID);
+      }
+      function deleteExpenseFromScreen(expenseID){
+        const parentNode = document.getElementById("expenseList");
+        const childNodeToBeRemoved = document.getElementById(expenseID);
+        if(childNodeToBeRemoved){
+          parentNode.removeChild(childNodeToBeRemoved);
+        }
+      }
+    
+    </script>
+  </body>
+</html>
