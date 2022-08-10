@@ -1,10 +1,8 @@
 const fs = require('fs');
-
 const requestHandler = (req, res) => {
   const url = req.url;
   const method = req.method;
   if(url === '/'){
-    
     res.write('<html>');
     res.write('<body><form action="/message" method="POST"><input type="text"name="message"><button>Send</button></form></body>')
     res.write('</html>');
@@ -19,18 +17,26 @@ const requestHandler = (req, res) => {
     return req.on('end', ()=>{
       const parsedBody = Buffer.concat(body).toString();
       const message = parsedBody.split('=')[1];
-      fs.writeFile('message.txt', message, err => {
+      fs.appendFile('message.txt', message , err => {
         res.statusCode = 302;
-        res.setHeader('Location', '/');
+        res.setHeader('Location', '/read');
         return res.end();
       });
     }); 
   }
-  res.setHeader('Content-Type', 'text/html');
-    res.write('<html>');
-    res.write('<body><h1>Please enter valid URL</h1></body>')
-    res.write('</html>');
-    res.end();
+  if(url === '/read' && method === 'GET'){
+  fs.readFile('message.txt','utf8', function(err, data){
+    console.log(data);
+    res.write(data + "\n");
+    return res.end();
+  })
+}
+  // }
+  // res.setHeader('Content-Type', 'text/html');
+  //   res.write('<html>');
+  //   res.write('<body><h1>Please enter valid URL</h1></body>')
+  //   res.write('</html>');
+  //   res.end();
 }
 // module.exports = requestHandler;
 // module.exports = {
