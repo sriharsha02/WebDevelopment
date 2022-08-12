@@ -7,9 +7,13 @@ router.get('/add-product', (req, res, next) => {
     '<form action="/admin/add-product" method="POST"><input type="text" name="title"><br><input type="text" name="size"><br><button type="submit">Add Product</button></form>');
 });
 router.post('/add-product', (req, res, next) => {
+  
   console.log(req.body);
+  // res.send('Hello from post')
   res.redirect('/shop');
 });
 
 module.exports = router;
+  
+
 
