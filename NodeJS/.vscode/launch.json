@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}\\ReqRes\\parsingRequests.js",
+      "program": "${workspaceFolder}\\ReqRes\\app.js",
       "restart": true,
       "runtimeExecutable": "nodemon",
       "console": "integratedTerminal"
