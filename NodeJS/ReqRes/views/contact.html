@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="/css/product.css">
+  <style>
+        .product-form{
+      width: 20rem;
+      max-width: 90%;
+      margin: auto; 
+    }
+    .form-control{
+      margin: 1rem 0;
+    }
+    .form-control label,
+    .form-control input{
+      width: 100%;
+      display: block;
+    }
+    .form-control input{
+      border: 1px solid black;
+      font: inherit;
+      border-radius: 2px;
+    }
+    button{
+      font: inherit;
+      border: 1px solid yellow;
+      color: yellow;
+      background-color: rgb(156, 189, 90);
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover,
+    button:active{
+      background-color: purple;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <form class="product-form">
+    <div class="form-control">
+      <label for="title">Name: </label>
+      <input type="text" name="username" id="username" required> 
+      <label for="title">Email: </label>
+      <input type="email" name="email" id="email" required>
+    </div>
+    <button type="submit" onclick="location.href='/success'">Submit</button>
+  </form>
+  
+</body>
+</html>
