@@ -1,0 +1,111 @@
+*{
+  box-sizing: content-box;
+}
+
+.main_header {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.nav_links{
+  list-style: none;
+}
+.nav_links li{
+  display: inline-block;
+  padding: 0 20px;
+}
+.nav_links li a{
+  transition: all 0.3s ease 0s;
+  color: white;
+}
+.nav_links li  a:hover{
+  color: blue;
+}
+.comp_name{
+  background-color: grey;
+  text-align: center;
+  padding-top: 1px;
+  padding: 10px;
+}
+.top_headings{
+  text-align: center;
+}
+button{
+  padding: 9px 25px;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 30px;
+}
+
+#section1-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0.5px;
+}
+#section2-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+.see-the-cart{
+  display: flex;
+  margin-top: 50px;
+  margin-left: 680px;
+  background-color: gray;
+  font-size: large;
+}
+
+footer{
+  display:flex;
+  margin-top:40px;
+  padding:20px;
+  background: grey;
+}
+footer .footer-title{
+  text-align: center;
+  color:white;
+  width:50%;
+  font-size:50px;
+  font-weight:bold;
+  margin:0 auto;
+}
+footer .footer-icons{
+  width:50%;
+  display:flex;
+  align-items:center;
+  justify-content: space-around;
+}
+.footer-icons ul{
+  list-style-type: none;
+  display:flex;
+}
+.footer-icons li{
+  padding:10px;
+  margin:0px 20px;
+}
+.footer-icons li:hover{
+  background: black;
+}
+.footer-icons img{
+  width:30px;
+}
+
+div{
+  display: block;
+}
+section{
+  display: block;
+}
