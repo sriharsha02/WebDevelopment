@@ -41,6 +41,11 @@ button{
   cursor: pointer;
   transition: all 0.3s ease 0s;
 }
+#main-cart-button{
+  background-color: aliceblue;
+  color: black;
+  font-weight: bold;
+}
 
 .container {
   max-width: 900px;
@@ -108,4 +113,87 @@ div{
 }
 section{
   display: block;
+}
+
+
+/* Home Page Styling: */
+
+.tours-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#tours-heading{
+  font-size: xx-large;
+}
+
+#buy-tickets1{
+  margin-left: 230px;
+}
+#buy-tickets2{
+  margin-left: 302px;
+}
+#buy-tickets3{
+  margin-left: 318px;
+}
+#buy-tickets4{
+  margin-left: 308px;
+}
+#buy-tickets5{
+  margin-left: 300px;
+}
+#buy-tickets6{
+  margin-left: 290px;
+}
+
+#hr-lines{
+  width: 50%;
+}
+#tours-title-div{
+  padding-top: 50px;
+  text-align: center;
+}
+#venue-details{
+  margin-left: 400px;
+}
+
+
+/* About Us Styling: */
+
+
+.about-us-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#about-us-group-image{
+  margin-top: 100px;
+  margin-left: 550px;
+  width: 300px;
+  height: 300px;
+  border-radius: 20%;
+}
+#about-data{
+  padding-top: 100px;
+  font-family: inherit;
+  font-size: larger;
+  text-align: left;
+}
+
+
+.toast{
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+}
+
+#notification-div{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }

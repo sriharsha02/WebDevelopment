@@ -6,20 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ecommerce Website</title>
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
+  <div id="notification-div"></div>
   <div class="main-div">
     <header class="main_header">
+      
       <img src="" alt="">
       <nav>
         <ul class="nav_links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Store</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="./home.html">Home</a></li>
+          <li><a href="./store.html">Store</a></li>
+          <li><a href="./about.html">About</a></li>
         </ul>
       </nav>
-      <a href="#"><button>Cart</button></a>
+      <a href="#"><button id="main-cart-button">Cart</button></a>
   
     </header>
     <header class="comp_name">
@@ -27,72 +28,70 @@
     </header>
     <section id="music-section" class="container">
       <h1 class="top_headings">Music</h1>
-      <div id="section1-div">
+      <div id="section1-div" class="section-div" onclick= "createNotification">
         <div id="music-album1">
           <h2>Album 1</h2>
-          <div>
+          <div id="album1">
             <img src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png" alt="album1image">
           </div>
           <div>
             <p>$12.99</p>
-            <button type="submit">Add to Cart</button>
+            <button type="submit" class="add-to-cart">Add to Cart</button>
           </div>
         </div>
         <div id="music-album2">
           <h2>Album 2</h2>
-          <div>
+          <div id="album2">
             <img src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png" alt="album2image">
           </div>
           <div>
             <p>$14.99</p>
-            <button type="submit">Add to Cart</button>
+            <button type="submit"  class="add-to-cart">Add to Cart</button>
           </div>
         </div>
         <div id="music-album3">
           <h2>Album 3</h2>
-          <div>
+          <div id="album3">
             <img src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png" alt="album3image">
           </div>
           <div>
             <p>$9.99</p>
-            <button type="submit">Add to Cart</button>
+            <button type="submit"   class="add-to-cart">Add to Cart</button>
           </div>
         </div>
         <div id="music-album4">
           <h2>Album 4</h2>
-          <div>
+          <div id="album4">
             <img src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png" alt="album4image">
           </div>
           <div>
             <p>$9.99</p>
-            <button type="submit">Add to Cart</button>
+            <button type="submit"   class="add-to-cart">Add to Cart</button>
           </div>
         </div>
-
       </div>
-      
     </section>
     <section id="merchendise-section" class="container">
       <h1 class="top_headings">Merchendise</h1>
-      <div id="section2-div">
-        <div >
+      <div id="section2-div" class="section-div" onclick= "createNotification">
+        <div id="merch1">
           <h2>T-Shirt</h2>
           <div>
             <img src="https://prasadyash2411.github.io/ecom-website/img/Shirt.png" alt="shirtimage">
           </div>
           <div>
             <p>$19.99</p>
-            <button type="submit">Add to Cart</button>
+            <button type="submit"  class="add-to-cart">Add to Cart</button>
           </div>
         </div>
-        <div>
+        <div id="merch2">
           <h2>Coffee Cup</h2>
           <div>
             <img src="https://prasadyash2411.github.io/ecom-website/img/Cofee.png" alt="coffeecupimage">
           </div>
           <div>
             <p>$6.99</p>
-            <button type="submit">Add to Cart</button>
+            <button type="submit" class="add-to-cart">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -102,7 +101,7 @@
       <div class="footer-title">
           The Generics
       </div>
-      <div class="footer-icons">
+      <div id="footer-div" class="footer-icons">
           <ul>
               <li><a href="https://www.youtube.com">
                   <img src="https://prasadyash2411.github.io/ecom-website/img/6260efc8fc9a9002669d2f4ad9956cc0.jpg" alt="">
@@ -116,9 +115,7 @@
           </ul>
       </div>
   </footer>
-
   </div>
-  
-  
+  <script src="script.js"></script>
 </body>
 </html>
