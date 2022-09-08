@@ -20,7 +20,14 @@
           <li><a href="./about.html">About</a></li>
         </ul>
       </nav>
-      <a href="#"><button id="main-cart-button">Cart</button></a>
+      <button id="main-cart-button">Cart</button>
+      <div class="popup-container" id="cart-container">
+        <div class="popup">
+          <button id="close">x</button>
+        </div>
+      </div>
+    
+      
   
     </header>
     <header class="comp_name">
@@ -36,7 +43,7 @@
           </div>
           <div>
             <p>$12.99</p>
-            <button type="submit" class="add-to-cart">Add to Cart</button>
+            <button type="submit" class="add-to-cart" onclick="addToCart(album1)">Add to Cart</button>
           </div>
         </div>
         <div id="music-album2">
@@ -46,7 +53,7 @@
           </div>
           <div>
             <p>$14.99</p>
-            <button type="submit"  class="add-to-cart">Add to Cart</button>
+            <button type="submit"  class="add-to-cart" onclick="addToCart(album2)">Add to Cart</button>
           </div>
         </div>
         <div id="music-album3">
@@ -56,7 +63,7 @@
           </div>
           <div>
             <p>$9.99</p>
-            <button type="submit"   class="add-to-cart">Add to Cart</button>
+            <button type="submit"   class="add-to-cart" onclick="addToCart(album3)">Add to Cart</button>
           </div>
         </div>
         <div id="music-album4">
@@ -66,7 +73,7 @@
           </div>
           <div>
             <p>$9.99</p>
-            <button type="submit"   class="add-to-cart">Add to Cart</button>
+            <button type="submit"   class="add-to-cart" onclick="addToCart(album4)">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -81,7 +88,7 @@
           </div>
           <div>
             <p>$19.99</p>
-            <button type="submit"  class="add-to-cart">Add to Cart</button>
+            <button type="submit"  class="add-to-cart" onclick="addToCart(merch1)">Add to Cart</button>
           </div>
         </div>
         <div id="merch2">
@@ -91,7 +98,7 @@
           </div>
           <div>
             <p>$6.99</p>
-            <button type="submit" class="add-to-cart">Add to Cart</button>
+            <button type="submit" class="add-to-cart" onclick="addToCart(merch2)">Add to Cart</button>
           </div>
         </div>
       </div>
